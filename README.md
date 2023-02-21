@@ -1,4 +1,4 @@
-How to: Docker Oracle 19.3 and ORDS 22.4.2 and APEX 22.2.0
+How to: Install and Set Up Docker Oracle 19.3 and ORDS 22.4.2 and APEX 22.2.0
 -----------------------------------------------------------
 1) Configure Disk (Optional)
 Create virtual disk at Virtual Box level 

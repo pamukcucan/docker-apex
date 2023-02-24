@@ -428,4 +428,70 @@ Continue with item 4
 ----------------------
 
 
+Now we can Install SOA on another container since we have a running DB Container following the steps in below URL;
+
+https://container-registry.oracle.com/ords/f?p=113:4:21528203211685:::4:P4_REPOSITORY,AI_REPOSITORY,AI_REPOSITORY_NAME,P4_REPOSITORY_NAME,P4_EULA_ID,P4_BUSINESS_AREA_ID:252,252,Oracle%20SOA%20Suite,Oracle%20SOA%20Suite,1,0&cs=3YINzsnUMaDgnI5fmSPxpk2kjAO6sC6AfOkp9c2f6sQBKO8INu9dHYjRlv2x11wzSbhDwGabqDmPfvlBlxiFr7g
+
+
+Create a User Defined network
+
+We have a network: oracle_network
+
+We also have our oracle user as: 54321 oinstall dba oracle
+
+# mkdir -p /u01/DockerVolume/SOAVolume/SOA
+# chown -R 54321:54321 /u01/DockerVolume/SOAVolume/
+# chmod -R 750 /u01/DockerVolume/SOAVolume/
+
+SOA 12.2.1.4.0 Docker image
+
+# docker pull container-registry.oracle.com/middleware/soasuite:12.2.1.4
+
+# cd /u01/DockerVolume/SOAVolume/SOA
+
+Replace in adminserver.env.list the values for the Database and WebLogic passwords.
+
+# vi adminserver.env.list
+
+CONNECTION_STRING=oracledb19c:1521/ORCLPDB1
+RCUPREFIX=SOA1
+DB_PASSWORD=Welcome1##
+DB_SCHEMA_PASSWORD=Welcome1##
+ADMIN_PASSWORD=Welcome1##
+DOMAIN_NAME=soainfra
+DOMAIN_TYPE=soa
+ADMIN_HOST=soaas
+PERSISTENCE_STORE=jdbc
+
+
+--Generic Run Command--
+ $ docker run -i -t  --name soaas --network=SOANet -p 7001:7001  -v /u01/DockerVolume/SOAVolume/SOA:/u01/oracle/user_projects   --env-file ./adminserver.env.list oracle/soa:12.2.1.4.0
+
+--The Run Command in our case--
+# docker run -i -t  --name soaas --network=oracle_network -p 7001:7001  -v /opt/SOAVolume/SOA:/opt/oracle/user_projects   --env-file ./adminserver.env.list oracle/soa:12.2.1.4
+
+
+INFO: Admin server is running
+
+INFO: Admin server running, ready to start managed server
+
+
+
+
+
+-------------------
+CONGRATS!!
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 

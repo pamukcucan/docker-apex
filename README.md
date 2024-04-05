@@ -299,8 +299,6 @@ CONN_STRING=sys/Welcome1##@172.18.0.2:1521/ORCLPDB1
 # docker run --rm --name ords --network=oracle_network -v /opt/ords/ords_secrets:/opt/oracle/variables -v /opt/ords/ords_config/:/etc/ords/config/ -p 8181:8181 container-registry.oracle.com/database/ords:latest
 
 
-(Apex Objeleri hem PDB hem CDB de varsa alırsın biz DB uçurduk öyle çözdük)
-
 The container will install/upgrade APEX and ORDS and before start the ORDS service
 
 Open browser on localhost with the mapped port by docker (http://localhost:8181/ords) and use below credentials:

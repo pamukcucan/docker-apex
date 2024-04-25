@@ -177,12 +177,12 @@ The process of creating the database will take between 10 and 20 minutes,
 you just have to wait for the message DATABASE IS READY TO USE!:
 
 -----------
-Regular startup of DB containers
+//Standard startup command of DB containers
 
 # docker run -it --rm --name oracledb --network=oracle_network -p 1521:1521 -p 5500:5500 -v /opt/docker19/oradata:/opt/oracle/oradata  container/database:19.3.0-ee
 
 ------------------
-to change password of sys/system
+//to change password of sys/system
 # docker exec oracledb /opt/oracle/setPassword.sh Welcome1##
 
 ------------------
@@ -211,7 +211,7 @@ As root
 --Or set the environment variable TNS_ADMIN to directory that contain files.
 -------
 
-# export PATH=/usr/lib/oracle/21/client64/bin:$PATH.  >> (instant client pathini export ediyor böylece heryerden sqlplus yapılabilir)
+# export PATH=/usr/lib/oracle/21/client64/bin:$PATH.  >> (instant client path export so that sqlplus connection will be possible everywhere)
 
 
 # cd /usr/lib/oracle/21/client64/lib/network/admin
@@ -351,6 +351,10 @@ https://eherrera.net/using-oracle-docker-container/
 https://github.com/oracle/docker-images/blob/main/OracleDatabase/SingleInstance/README.md
 https://tm-apex.blogspot.com/2022/06/running-apex-in-docker-container.html
 https://www.talkapex.com/2017/10/docker-oracle-and-apex/
+-----------------------------------------------------------
+
+A NEW PART FOR SOA ON ORACLE DB 19C
+
 -----------------------------------------------------------
 
 7) Building Oracle 19.3.0 Database Image for Docker Container & Starting it up
